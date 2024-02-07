@@ -39,6 +39,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
 
   scan-main:
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       repository-projects: read
