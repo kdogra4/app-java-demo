@@ -51,7 +51,7 @@ jobs:
       if: ${{ github.event_name == 'push' }}
       uses: endorlabs/github-action@v1.1.1
       with:
-        namespace: 'kriti-test-bugbash' 
+        namespace: 'kriti-learn' 
         scan_dependencies: true
         scan_secrets: true
         pr: false
