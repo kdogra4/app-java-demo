@@ -42,6 +42,7 @@ jobs:
       repository-projects: read
       pull-requests: read
       contents: read
+      security-events: write
     name: endorctl-scan
     steps:
     - uses: actions/checkout@v3
