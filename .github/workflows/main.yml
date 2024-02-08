@@ -57,9 +57,4 @@ jobs:
         scan_secrets: true
         pr: false
         scan_summary_output_type: 'table'
-        sarif_file: 'findings.sarif'
-
-    - name: Upload SARIF to github
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: 'findings.sarif'        
+     
