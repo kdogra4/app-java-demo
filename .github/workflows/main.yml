@@ -50,7 +50,7 @@ jobs:
 
     - name: 'Endor Labs Scan Push to main'
       if: ${{ github.event_name == 'push' }}
-      uses: endorlabs/github-action@v1.1.1
+      uses: endorlabs/github-action@main
       with:
         namespace: 'kriti-test-bugbash' 
         scan_dependencies: true
