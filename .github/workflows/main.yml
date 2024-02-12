@@ -29,13 +29,12 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: endorlabs/github-action@v1.1.1
       with:
-        namespace: 'kriti-test-bugbash' 
+        namespace: 'kriti-learn' 
         scan_dependencies: true
         scan_secrets: true
         pr: true
         enable_pr_comments: ${{ env.ENDORCTL_PR }}
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
-        api: 'https://api.staging.endorlabs.com'
 
   scan-main:
     runs-on: ubuntu-latest
@@ -53,8 +52,7 @@ jobs:
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
       uses: endorlabs/github-action@main
       with:
-        namespace: 'kriti-test-bugbash' 
-        api: "https://api.staging.endorlabs.com"
+        namespace: 'kriti-learn' 
         scan_dependencies: true
         scan_secrets: true
         pr: false
