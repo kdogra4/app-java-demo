@@ -33,7 +33,7 @@ jobs:
         scan_dependencies: true
         scan_secrets: true
         pr: true
-        enable_pr_comments: ${{ env.ENDORCTL_PR }}
+        enable_pr_comments: true
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
 
   scan-main:
@@ -60,6 +60,7 @@ jobs:
         sarif_file: 'findings.sarif'
             
     - name: Upload SARIF to github
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: 'findings.sarif'    
