@@ -27,5 +27,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jar-artifact
-        path: /target/endor-java-webapp-demo.jar
+        path: ${{ github.workspace }}/target/endor-java-webapp-demo.jar
         retention-days: 1
