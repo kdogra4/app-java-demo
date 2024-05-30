@@ -1,0 +1,31 @@
+name: Maven package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'microsoft'
+        java-version: '17'
+    
+    - name: Compile
+      run: mvn -B compile 
+
+    - name: Build a package
+      run: mvn -B package 
+
+    - name: Temporarily save jar artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: jar-artifact
+        path: ${{ github.workspace }}/endor-java-webapp-demo/target/*.jar
+        retention-days: 1
