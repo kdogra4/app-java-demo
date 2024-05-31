@@ -42,7 +42,11 @@ jobs:
     - name: Docker build
       run: |
         docker build . -t kdogra479/endor-java-webapp-demo:latest
-        
+    - name: Get SHA
+      run: |
+        IMAGE_SHA=$(docker inspect kdogra479/endor-java-webapp-demo:latest | jq -r '.[].Id')
+        SIGNING_TARGET="kdogra479/endor-java-webapp-demo@$IMAGE_SHA"
+        echo ARTIFACT="$SIGNING_TARGET" >> $GITHUB_ENV
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
