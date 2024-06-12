@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
   
 jobs:
-  # Job 1: scan
-  scan:
+  # Job 1: San on PR
+  scan-pr:
     runs-on: ubuntu-latest
     permissions:
       security-events: write # Used to upload Sarif artifact to GitHub
@@ -51,7 +51,7 @@ jobs:
       pull-requests: read
       contents: read
       security-events: write
-    
+      
     # Scan push to main and post issues to Github Security
     name: endorctl-scan
     steps:
@@ -64,6 +64,7 @@ jobs:
         scan_dependencies: true
         scan_secrets: true
         pr: false
+        tools: true # turn false for no CI/CD tool discovery
         scan_summary_output_type: 'table'
         sarif_file: 'findings.sarif'
         additional_args: --as-default-branch
@@ -73,3 +74,4 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: 'findings.sarif'    
+    
