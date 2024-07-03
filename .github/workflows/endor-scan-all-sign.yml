@@ -105,6 +105,7 @@ jobs:
         scan_dependencies: false
         scan_container: true
         image: kdogra479/endor-java-webapp-demo:latest
+        pr: false
     
     # Deploy: Step 5
     - name: Get Image Digest
