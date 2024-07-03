@@ -104,6 +104,7 @@ jobs:
         namespace: 'kriti-learn'
         scan_dependencies: false
         scan_container: true
+        image: kdogra479/endor-java-webapp-demo:latest
     
     # Deploy: Step 5
     - name: Get Image Digest
