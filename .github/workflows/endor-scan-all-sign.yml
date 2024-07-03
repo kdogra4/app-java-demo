@@ -1,4 +1,4 @@
-name: Sign and Push Image
+name: Build, Scan, and Push
 
 on:
   workflow_dispatch:
