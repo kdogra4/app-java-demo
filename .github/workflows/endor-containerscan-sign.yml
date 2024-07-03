@@ -98,20 +98,28 @@ jobs:
         docker build . -t kdogra479/endor-java-webapp-demo:latest
 
     # Deploy: Step 4
+    - name: Endor Container Scan
+      uses: endorlabs/github-action@main
+      with:
+        namespace: 'kriti-learn'
+        scan_dependencies: false
+        scan_container: true
+    
+    # Deploy: Step 5
     - name: Get Image Digest
       run: |
         IMAGE_SHA=$(docker inspect kdogra479/endor-java-webapp-demo:latest | jq -r '.[].Id')
         SIGNING_TARGET="kdogra479/endor-java-webapp-demo@$IMAGE_SHA"
         echo ARTIFACT="$SIGNING_TARGET" >> $GITHUB_ENV
 
-    # Deploy: Step 5
+    # Deploy: Step 6
     - name: Sign with Endor Labs
       uses: endorlabs/github-action/sign@v1.1.3
       with:
         namespace: "kriti-learn"
         artifact_name: ${{ env.ARTIFACT }}
 
-    # Deploy: Step 6
+    # Deploy: Step 7
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
