@@ -62,7 +62,17 @@ jobs:
         pr: false
         scan_summary_output_type: 'table'
         sarif_file: 'findings.sarif'
-        additional_args: --as-default-branch --tags="test-tag"
+        additional_args: --as-default-branch 
+    
+    - name: 'Tag Project'
+      uses: endorlabs/github-action/setup@main
+      with: 
+        namespace: 'kriti-learn'
+        run: |
+          endorctl api update -r Project --name ${{ github.repository }} \
+          --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" \
+          --field-mask 'meta-tags'
+    
             
     - name: Upload SARIF to github
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
