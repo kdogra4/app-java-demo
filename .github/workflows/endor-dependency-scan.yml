@@ -72,7 +72,7 @@ jobs:
     
     - name: 'Tag project'
       run: |
-        endorctl api update -r Project --name ${{ github.server_url }}/${{ github.repository }}.git --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" --field-mask 'meta-tags'
+        endorctl api update -r Project --name ${{ github.server_url }}/${{ github.repository }}.git --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" --field-mask 'meta.tags'
     
             
     - name: 'Upload SARIF to Github'
