@@ -64,11 +64,11 @@ jobs:
         sarif_file: 'findings.sarif'
         additional_args: --as-default-branch 
     
-    # - name: 'Setup API'
-    #   uses: endorlabs/github-action/setup@main
-    #   with: 
-    #     namespace: 'kriti-learn'
-    #     enable_github_action_token: true
+    - name: 'Setup API'
+      uses: endorlabs/github-action/setup@main
+      with: 
+        namespace: 'kriti-learn'
+        enable_github_action_token: true
     
     - name: 'Tag project'
       run: |
