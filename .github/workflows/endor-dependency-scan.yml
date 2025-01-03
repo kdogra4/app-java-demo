@@ -72,6 +72,8 @@ jobs:
     #     enable_github_action_token: true
     
     - name: 'Tag project'
+    with: 
+      enable_github_action_token: true 
       run: |
         endorctl api update -r Project --name ${{ github.server_url }}/${{ github.repository }}.git --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" --field-mask 'meta.tags'
     
