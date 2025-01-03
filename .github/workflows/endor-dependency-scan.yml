@@ -47,10 +47,21 @@ jobs:
       pull-requests: read
       contents: read
       security-events: write
-      
-    # Scan push to main and post issues to Github Security
+    
     name: endorctl-scan
     steps:
+    - uses: actions/checkout@v3
+    - name: 'Endor Labs Scan Push to main'
+      if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+      uses: endorlabs/github-action@main
+      with:
+        namespace: 'kriti-learn' 
+        scan_dependencies: true
+        scan_secrets: true
+        pr: false
+        scan_summary_output_type: 'table'
+        sarif_file: 'findings.sarif'
+        additional_args: --as-default-branch 
     
     - name: 'Setup API'
       uses: endorlabs/github-action/setup@main
@@ -58,10 +69,6 @@ jobs:
         namespace: 'kriti-learn'
         enable_github_action_token: true
         
-    - name: 'Scan Project'
-      run: |
-        endorctl scan --dependencies --secrets --sarif-file findings.sarif --as-default-branch
-    
     - name: 'Tag project'
       run: |
         endorctl api update -r Project --name ${{ github.server_url }}/${{ github.repository }}.git --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" --field-mask 'meta.tags'
