@@ -72,7 +72,7 @@ jobs:
     
     - name: 'Tag project'
       run: |
-        endorctl api update -r Project --name ${{ github.repository }} \
+        endorctl api update -r Project --name ${{ github.server.url}}${{ github.repository }} \
         --data "{ \"meta\": {\"tags\": [ \"CrownJewel\" ] }}" \
         --field-mask 'meta-tags'
     
