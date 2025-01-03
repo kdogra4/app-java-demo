@@ -60,10 +60,9 @@ jobs:
         scan_dependencies: true
         scan_secrets: true
         pr: false
-        tools: true # turn false for no CI/CD tool discovery
         scan_summary_output_type: 'table'
         sarif_file: 'findings.sarif'
-        additional_args: --as-default-branch
+        additional_args: --as-default-branch --tags="test-tag"
             
     - name: Upload SARIF to github
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
