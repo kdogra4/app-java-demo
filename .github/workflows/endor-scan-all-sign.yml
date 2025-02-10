@@ -87,7 +87,7 @@ jobs:
 
     # Deploy: Step 2
     - name: Download Jar
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v4
       with:
           name: jar-artifact
           path: target/
