@@ -42,7 +42,9 @@ jobs:
     - name: 'Endor Labs Scan Push to main'
       uses: endorlabs/github-action@main
       with:
-        namespace: 'kriti-learn' 
+        namespace: 'kriti-learn'
+        api.key: ${{ secrets.KEY }}
+        api.secret: ${{ secrets.SECRET }}
         scan_dependencies: true
         pr: false
         scan_summary_output_type: 'table'
