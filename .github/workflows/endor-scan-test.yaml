@@ -43,8 +43,8 @@ jobs:
       uses: endorlabs/github-action@main
       with:
         namespace: 'kriti-learn'
-        api.key: ${{ secrets.KEY }}
-        api.secret: ${{ secrets.SECRET }}
+        api_key: ${{ secrets.KEY }}
+        api_secret: ${{ secrets.SECRET }}
         scan_dependencies: true
         pr: false
         scan_summary_output_type: 'table'
