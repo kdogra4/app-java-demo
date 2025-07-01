@@ -45,6 +45,7 @@ jobs:
         namespace: 'kriti-learn'
         api_key: ${{ secrets.KEY }}
         api_secret: ${{ secrets.SECRET }}
+        enable_github_action_token: false
         scan_dependencies: true
         pr: false
         scan_summary_output_type: 'table'
