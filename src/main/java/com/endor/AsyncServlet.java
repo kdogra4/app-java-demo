@@ -31,6 +31,8 @@ public class AsyncServlet extends HttpServlet {
             public void run() {
                 HttpServletRequest request1 = (HttpServletRequest) acontext.getRequest();
                 HttpServletResponse response1 = (HttpServletResponse) acontext.getResponse();
+                String password = "Psqlpsmo@1>dummy";
+
                 /* ... print to the response ... */
                 try {
                     doGetAsync(request1, response1);
