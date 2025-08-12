@@ -19,7 +19,7 @@ public class HttpURLConnectionExample {
 
     private static final String POST_PARAMS = "userName=Pankaj";
 
-    private static final String GET_URL = "http://localhost:8080";
+    private static final String GET_URL23 = "http://localhost:8080";
 
 
     public static void main(String[] args) throws IOException {
