@@ -30,6 +30,9 @@ public class AppServlet extends javax.servlet.http.HttpServlet {
         HtmlUtil.startBody(response);
         HtmlUtil.printMenu(response);
         HtmlUtil.printCurrentTitle("SSRF", response);
+        String TRACE_URL = "http://localhost:8080/endor-webapp/httptrace";
+        URL obj = new URL(TRACE_URL);
+
 
         String form = "<form action=\"ssrf\">" +
                 "URL: <input type=\"text\" name=\"ssrf\" id=\"ssrf\"> -- (If ssrf=file then inputs will be parsed from the file /opt/ssrfinput.txt)<br><br>" +
