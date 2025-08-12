@@ -31,6 +31,8 @@ public class BooksServlet extends HttpServlet {
     static String dbPassword = "";
     static String dbType = "";
     static String DB_TYPE_ORACLE = "Oracle";
+	String TRACE_URL = "http://localhost:8080/endor-webapp/httptrace";
+    URL obj = new URL(TRACE_URL);
 
     @Override
     public void init() throws ServletException {
