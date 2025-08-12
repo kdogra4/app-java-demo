@@ -14,6 +14,8 @@ public class CookieTest extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        String TRACE_URL = "http://localhost:8080/endor-webapp/httptrace";
+        URL obj = new URL(TRACE_URL);
         PrintWriter out = response.getWriter();
         HtmlUtil.printHtmlHeader(response);
         HtmlUtil.startBody(response);
