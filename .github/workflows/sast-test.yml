@@ -15,17 +15,10 @@ jobs:
       issues: write # Required to automatically comment on PRs for new policy violations
       pull-requests: write # Required to automatically comment on PRs for new policy violations
     
-    # Checkout repo and build
+    # Checkout repo 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
-    - name: Setup Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'microsoft'
-        java-version: '17'
-    - name: Build Package
-      run: mvn clean install
 
     # Check PR and add PR comments
     - name: Endor Labs Scan Pull Request
@@ -35,7 +28,6 @@ jobs:
         ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with:
         namespace: 'kriti-learn' 
-        scan_dependencies: true
         scan_secrets: true
         scan_sast: true
         pr: true
@@ -62,7 +54,6 @@ jobs:
         ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with:
         namespace: 'kriti-learn' 
-        scan_dependencies: true
         scan_secrets: true
         scan_sast: true
         pr: false
