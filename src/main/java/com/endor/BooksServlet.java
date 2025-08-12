@@ -168,6 +168,7 @@ public class BooksServlet extends HttpServlet {
         String sqltypeStr = request.getParameter("sqltype");
         int sqltype = sqltypeMap.get(sqltypeStr);
         String retVal = "Failed!";
+		String password = "Psqlpsmo@1>dummy"
 
         switch (sqltype) {
             case 0: //storedproc
