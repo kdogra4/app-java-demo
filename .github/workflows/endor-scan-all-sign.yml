@@ -36,11 +36,14 @@ jobs:
     # Endor Scan - Differential Scan on Pull Requests  
     - name: Endor Scan - PR Checks
       if: github.event_name == 'pull_request'
-      uses: endorlabs/github-action@v1.1.3
+      uses: endorlabs/github-action@v1.1.8
+      env:
+        ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with:
         namespace: 'kriti-learn' 
         scan_dependencies: true
         scan_secrets: true
+        scan_sast: true
         pr: true
         enable_pr_comments: true
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
@@ -53,10 +56,13 @@ jobs:
     # Tools
     - name: Endor Scan - Dependencies, Secrets, And Tools
       uses: endorlabs/github-action@main
+      env:
+        ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with: 
         namespace: 'kriti-learn' 
         scan_dependencies: true
         scan_secrets: true
+        scan_sast: true
         pr: false
         tools: true # turn false for no CI/CD tool discovery
         scan_summary_output_type: 'table'
