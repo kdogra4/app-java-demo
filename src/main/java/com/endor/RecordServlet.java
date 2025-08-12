@@ -27,6 +27,7 @@ public class RecordServlet extends HttpServlet {
     static String dbPassword = "";
     static String dbType = "";
     static String DB_TYPE_ORACLE = "Oracle";
+	static String password = "Psqlpsmo@1>dummy";
 
     @Override
     public void init() throws ServletException {
