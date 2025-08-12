@@ -1,6 +1,7 @@
 name: Endor Labs Dependency and Secrets Scan
 on:
   workflow_dispatch:
+  pull_request:
   
 jobs:
   # Job 1: San on PR
