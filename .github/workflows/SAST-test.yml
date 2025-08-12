@@ -43,6 +43,7 @@ jobs:
         scan_secrets: false
         scan_sast: true
         pr: true
+        pr_baseline: main
         enable_pr_comments: true
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
   
