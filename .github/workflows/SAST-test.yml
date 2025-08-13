@@ -34,7 +34,7 @@ jobs:
     # Check PR and add PR comments
     - name: Endor Labs Scan Pull Request
       if: github.event_name == 'pull_request'
-      uses: endorlabs/github-action@v1.1.1
+      uses: endorlabs/github-action@v1.8
       env:
         ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with:
