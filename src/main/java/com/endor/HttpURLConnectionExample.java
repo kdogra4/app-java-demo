@@ -23,6 +23,9 @@ public class HttpURLConnectionExample {
 
         sendGET();
         System.out.println("GET DONE");
+        //ADDED FOR TEST
+        String TRACE_URL = "http://localhost:8080/endor-webapp/httptrace";
+        URL obj = new URL(TRACE_URL);
        // sendPOST();
         System.out.println("POST DONE");
     }
