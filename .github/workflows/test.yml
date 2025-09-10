@@ -33,7 +33,7 @@ jobs:
       run: mvn clean install 
 
     - name: Endor Scan - Dependencies, Secrets, And Tools
-      uses: endorlabs/github-action@main
+      uses: endorlabs/github-action@v1.8
       with: 
         namespace: 'kriti-learn' 
         scan_dependencies: true
