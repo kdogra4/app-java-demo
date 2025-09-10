@@ -42,7 +42,7 @@ jobs:
       env:
         ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
       with:
-        namespace: 'kriti-learn'
+        namespace: 'kriti-learn.cx-test'
         scan_dependencies: true
         scan_secrets: true
         scan_sast: true
