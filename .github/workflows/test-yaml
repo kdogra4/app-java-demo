@@ -1,0 +1,47 @@
+name: New Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan-main:
+    permissions:
+      repository-projects: read
+      pull-requests: read
+      contents: read
+    name: endorctl-scan
+    runs-on: buntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Setup Java
+      run: |
+        curl https://mise.run | sh
+        /home/runner/.local/bin/mise install java@17.0.1
+        /home/runner/.local/bin/mise install maven
+        /home/runner/.local/bin/mise use -g maven
+        # Make mise shims visible to later steps
+        echo "$HOME/.local/share/mise/shims" >> "$GITHUB_PATH"
+
+    - name: Verify tools (optional but helpful)
+      run: |
+        which mvn
+        mvn -v
+        java -version
+    
+    - name: Add build settings
+      run: mvn clean install 
+
+    - name: Endor Scan - Dependencies, Secrets, And Tools
+      uses: endorlabs/github-action@main
+      with: 
+        namespace: 'kriti-learn' 
+        scan_dependencies: true
+        scan_secrets: true
+        scan_sast: false
+        pr: false
+        tools: false
+        scan_summary_output_type: 'table'
+        additional_args: "--languages=java"
+
+ 
