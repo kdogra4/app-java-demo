@@ -32,16 +32,19 @@ jobs:
     - name: Add build settings
       run: mvn clean install 
 
-    - name: Endor Scan - Dependencies, Secrets, And Tools
+    - name: 'Endor Labs Scan Push to main'
+      if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
       uses: endorlabs/github-action@main
-      with: 
-        namespace: 'kriti-learn' 
+      env:
+        ENDOR_SCAN_SEMGREP_PROGRAM: opengrep
+      with:
+        namespace: 'kriti-learn'
         scan_dependencies: true
         scan_secrets: true
-        scan_sast: false
+        scan_sast: true
         pr: false
-        tools: false
         scan_summary_output_type: 'table'
-        additional_args: "--languages=java"
+        sarif_file: 'findings.sarif'
+        additional_args: --as-default-branch 
 
  
