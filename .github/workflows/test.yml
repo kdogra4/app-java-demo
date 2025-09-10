@@ -10,7 +10,7 @@ jobs:
       pull-requests: read
       contents: read
     name: endorctl-scan
-    runs-on: buntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
