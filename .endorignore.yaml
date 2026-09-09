@@ -1,0 +1,11 @@
+version: 1.0.0
+ignore:
+  - id: endorignore-1
+    username: kdogra@endor.ai@google@api-key
+    update_time: 2026-09-09 20:35:58 UTC
+    finding_name: 'GHSA-mjmj-j48q-9wg2: SnakeYaml Constructor Deserialization Remote Code Execution'
+    parent_name: mvn://com.endor.webapp:endor-java-webapp-demo@4.0-SNAPSHOT
+    dependency_name: mvn://org.yaml:snakeyaml@1.33
+    vuln_id: GHSA-mjmj-j48q-9wg2
+    extra_key: GHSA-mjmj-j48q-9wg2
+    reason: risk-accepted
