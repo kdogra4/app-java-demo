@@ -1,0 +1,36 @@
+name: Endor Labs EU Scan - Main Branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan-main:
+    runs-on: ubuntu-latest
+    env:
+      ENDOR_API: https://api.eu.endorlabs.com # EU cluster endpoint
+    permissions:
+      contents: read # Required to check out the repository
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Replace with your project's toolchain setup and build steps.
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'microsoft'
+          java-version: '17'
+          
+      - name: Install Dependencies
+        run: mvn clean install
+      
+      - name: Endor Labs Scan
+        uses: endorlabs/github-action@f46ffb04c928a9c9c356f9627bd60b710ed0963e # v1.1.13
+        with:
+          namespace: 'kriti-labs' # Replace with your Endor Labs namespace
+          api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
+          api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
+          enable_github_action_token: false
+          scan_dependencies: true
+          scan_secrets: true
+          pr: false # Track as a monitored verion
