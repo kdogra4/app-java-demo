@@ -6,8 +6,6 @@ on:
 jobs:
   scan-main:
     runs-on: ubuntu-latest
-    env:
-      ENDOR_API: https://api.eu.endorlabs.com # EU cluster endpoint
     permissions:
       contents: read # Required to check out the repository
     steps:
@@ -28,6 +26,7 @@ jobs:
         uses: endorlabs/github-action@f46ffb04c928a9c9c356f9627bd60b710ed0963e # v1.1.13
         with:
           namespace: 'kriti-labs' # Replace with your Endor Labs namespace
+          api: 'https://api.eu.endorlabs.com'
           api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
           api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
           enable_github_action_token: false
