@@ -34,7 +34,6 @@ jobs:
           scan_dependencies: true
           scan_secrets: true
           pr: true 
-          pr_baseline: 'main'
           additional_args: '--quick-scan'
           enable_pr_comments: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
