@@ -12,16 +12,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Replace with your project's toolchain setup and build steps.
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'microsoft'
-          java-version: '17'
-          
-      - name: Install Dependencies
-        run: mvn clean install
-      
       - name: Endor Labs Scan
         uses: endorlabs/github-action@f46ffb04c928a9c9c356f9627bd60b710ed0963e # v1.1.13
         with:
