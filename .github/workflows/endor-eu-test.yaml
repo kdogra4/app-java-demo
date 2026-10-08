@@ -1,8 +1,7 @@
 name: Endor Labs EU Scan - Main Branch
 
 on:
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch: 
 
 jobs:
   scan-main:
@@ -31,10 +30,6 @@ jobs:
           api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
           api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
           enable_github_action_token: false
-          scan_dependencies: true
-          scan_secrets: true
-          pr: true 
-          additional_args: '--quick-scan'
-          enable_pr_comments: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
+          scan_ai_sast: true
+          scan_dependencies: false
+          pr: false
